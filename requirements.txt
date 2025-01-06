@@ -1,0 +1,7 @@
+trulens
+llama-index
+trulens-apps-llamaindex 
+trulens-providers-openai 
+openai
+llama-index-llms-gemini
+google-generativeai
