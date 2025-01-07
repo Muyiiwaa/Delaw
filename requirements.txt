@@ -1,7 +1,8 @@
-trulens
 llama-index
-trulens-apps-llamaindex 
-trulens-providers-openai 
-openai
-llama-index-llms-gemini
 google-generativeai
+python-dotenv
+pypdf
+torch
+llama-index-llms-gemini
+llama-index-embeddings-huggingface
+streamlit

@@ -1,39 +1,11 @@
-from utils import build_automerging_index
-from llama_index.core import SimpleDirectoryReader
-from llama_index.llms.gemini import Gemini
-from dotenv import load_dotenv
-from utils import get_automerging_query_engine
-import os
-
-load_dotenv()
-
-GOOGLE_API_KEY = os.getenv("GEMINI_API_KEY")
-
-llm = Gemini(
-    model="models/gemini-1.5-flash",
-    api_key=GOOGLE_API_KEY,  # uses GOOGLE_API_KEY env var by default
-)
-
-documents = SimpleDirectoryReader(
-    input_files=["./crime_law.pdf"]
-).load_data()
+from utils import get_auto_merging_engine, get_auto_merging_index, get_documents
+import streamlit as st
 
 
-automerging_index = build_automerging_index(
-    documents,
-    llm,
-    embed_model="local:BAAI/bge-small-en-v1.5",
-    save_dir="merging_index"
-)
-
-
-automerging_query_engine = get_automerging_query_engine(
-    automerging_index,
-)
-
-auto_merging_response = automerging_query_engine.query(
-    "How do I build a portfolio of AI projects?"
-)
+index_dir = "./automerging_index_3"
+am_index_3 = get_auto_merging_index(get_documents(), index_dir, chunk_sizes=[2048, 512, 128])
+am_engine_3 = get_auto_merging_engine(am_index_3)
 
 if __name__ == "__main__":
-    print(str(auto_merging_response))
+    window_response_1 = am_engine_3.query("what happens if i destroy evidence?")
+    print(window_response_1.response)
