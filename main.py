@@ -16,7 +16,7 @@ def response_generator(prompt):
         yield word + " "
         time.sleep(0.05)
 
-st.title("CHAT WITH DELAW")
+st.title("CHAT WITH DE-LAW")
 
 # Initialize chat history
 if "messages" not in st.session_state:

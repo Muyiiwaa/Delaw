@@ -60,3 +60,6 @@ def get_auto_merging_engine(am_index):
     auto_merging_engine = RetrieverQueryEngine.from_args(retriever, node_postprocessors=[rerank])
     
     return auto_merging_engine
+
+
+# implememnt serv
